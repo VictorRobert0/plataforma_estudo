@@ -39,7 +39,7 @@
                         <h3>Cadastre-se</h3>
                         {% if messages  %}
                             {% for message in messages %}
-                                <section class="alert {{messages.tags}}">
+                                <section class="alert {{message.tags}}">
                                     {{message}}
                                 </section>
                             {% endfor %}
