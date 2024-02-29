@@ -13,6 +13,7 @@ def cadastro(request):
         username = request.POST.get('username')
         senha = request.POST.get('senha')
         confirmar_senha = request.POST.get('confirmar_senha')
+      
         
         if not senha == confirmar_senha:
             messages.add_message(request, constants.ERROR, 'Senha e confirmar senha não coincidem')
@@ -30,7 +31,8 @@ def cadastro(request):
                 username = username,
                 password= senha
             ) 
-            return redirect('usuarios/login') #Vai dar erro, não criei ainda
+            messages.add_message(request, constants.SUCCESS, 'Cadastro realizado com sucesso ;)')
+            return redirect('/usuarios/login') #Vai dar erro, não criei ainda
         except:
             messages.add_message(request, constants.ERROR, 'Erro interno, por favor, entre em contato com o backend')
             return redirect('/usuarios/cadastro') #redirecionando para cadastro se der erro
